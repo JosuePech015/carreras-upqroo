@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:vistas/widget/terapia.dart';
+import 'package:vistas/widget/software.dart';
+import 'package:vistas/widget/financiera.dart';
+import 'package:vistas/widget/biomedica.dart';
+import 'package:vistas/widget/administracion.dart';
+import 'package:vistas/widget/biotecnologia.dart';
 
 void administracion() {
   runApp(Administracion());
@@ -27,7 +32,7 @@ class Administracion extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Te interesa?',
+                      '¿Te interesa?',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
@@ -52,9 +57,9 @@ class Administracion extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\n la Licenciatura en Terapia Física también conocida como fisioterapia, es una profesión dentro del área de salud aplicada a la rehabilitación, a través de medios físicos, ejercicio terapéutico, masoterapia y electroterapia. La terapia física para la rehabilitación integral ofrece oportunidades que permiten a las personas con alguna deficiencia desarrollar sus destrezas mejorando su interrelación con su entorno.',
+                      '\nEsta Licenciatura tiene como objetivo formar profesionistas con capacidades analíticas y gerenciales que le permitan proyectar una sólida visión de negocios en ambientes de incertidumbre y de competitividad internacional aplicando e innovando técnicas administrativas en las diferentes áreas de las organizaciones.',
                       style: TextStyle(color: Colors.white),
-                    ),
+                    ),  
                     SizedBox(height: 5),
                     Divider(color: Colors.white),
                     Row(
@@ -73,7 +78,7 @@ class Administracion extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\nTener gusto por el área de la salud. Contar con espíritu de servicio para la atención de las necesidades de salud de la población. Tener la disposición para la investigación y resolución de problemas. Contar con el interés para incrementar sus habilidades humanísticas.',
+                      '\nEl aspirante a la carrera de Licenciatura Administración y Gestión Empresarial, deberá cumplir con las siguientes características: Habilidades matemáticas y razonamiento lógico Conocimientos básicos en el área de administración Conocimientos básicos en el área contable Capacidad organizativa Responsabilidad Liderazgo Capacidad emprendedora.',
                       style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(height: 10),
@@ -94,7 +99,7 @@ class Administracion extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\n El Licenciado en Terapia Física colabora con el equipo interdisciplinario de salud en la elaboración de los planes de tratamiento rehabilitatorio integral, tanto en el individuo discapacitado como con el sujeto de riesgo, con la aplicación de técnicas generales y especificas de rehabilitación.',
+                      '\nEl egresado será competente para: ejercer las funciones de consultoría en las empresas, proponer alternativas que permitan el desarrollo óptimo de las organizaciones, privilegiando las tecnologías de información aplicadas en el comercio y los negocios, mediante el manejo de manera circunstancial de las emociones en pro del desarrollo organizacional y crecimiento personal, con la búsqueda de soluciones mediante el trabajo en equipo y toma de decisiones',
                       style: TextStyle(color: Colors.white),
                     ),
                   ],
@@ -134,12 +139,47 @@ class HeaderSection extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
-              ),
+                ),
             ],
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Contact'),
+          PopupMenuButton<String>(
+            icon: Icon(Icons.menu, color: Colors.white),
+            onSelected: (value) {
+              switch (value) {
+                case '1':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaFinanciera()));
+                  break;
+                case '2':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaBiomedica()));
+                  break;
+                case '3':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaSoftware()));
+                  break;
+                case '4':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaBiotecnologia()));
+                  break;
+                case '5':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => TerapiaFisica()));
+                  break;
+                case '6':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Administracion()));
+                  break;
+              }
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(value: '1', child: Text('Licenciatura en Ingeniería Financiera')),
+              PopupMenuItem(value: '2', child: Text('Licenciatura en Ingeniería Biomédica')),
+              PopupMenuItem(value: '3', child: Text('Ingeniería en Tecnologia Informatica')),
+              PopupMenuItem(value: '4', child: Text('Ingeniería en Biotecnología')),
+              PopupMenuItem(value: '5', child: Text('Licenciatura en Terapia Física')),
+              PopupMenuItem(value: '6', child: Text('Licenciatura en Administración')),
+            ],
           ),
         ],
       ),
@@ -170,7 +210,7 @@ class ContentSection extends StatelessWidget {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'La Licenciatura en Terapia Física es una profesión dentro del área de salud y es entendida como la ciencia del movimiento aplicada a la rehabilitación. La terapia física brinda tratamiento a diferentes enfermedades de acuerdo a la evaluación previa de las habilidades y condiciones propias del paciente.',
+                  'En la Licenciatura en Administración y Gestión Empresarial se formarán profesionistas altamente competitivos, que respondan a los desafíos a los que se enfrentan las empresas, dirigiendo eficazmente los recursos y funciones, así como diseñando, evaluando y aplicando estrategias que permitan cumplir los objetivos y metas establecidas en las organizaciones. ',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -187,7 +227,7 @@ class ContentSection extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                  image: AssetImage('assets/Resource/Img/Terapia.png'),
+                  image: AssetImage('assets/Resource/Img/Administracion.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -218,7 +258,7 @@ class HighlightSection extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(16),
                 child: Text(
-                  '"Desarrollar al máximo las destrezas y habilidades de las personas con discapacidad y la interrelación del individuo con la familia y su entorno."',
+                  '"Desarrollar al máximo las destrezas y habilidades de comunicación para el crecimiento empresarial."',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -240,7 +280,7 @@ class HighlightSection extends StatelessWidget {
                     width: 100,  // Cambia según lo que necesites
                     height: 250,
                 child: Image.asset(
-                    'assets/Resource/Img/fisio1.jpg',
+                    'assets/Resource/Img/administracion.jpg',
                       fit: BoxFit.cover,
                 ),
               ),

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:vistas/widget/terapia.dart';
+import 'package:vistas/widget/software.dart';
+import 'package:vistas/widget/financiera.dart';
+import 'package:vistas/widget/biomedica.dart';
+import 'package:vistas/widget/administracion.dart';
+import 'package:vistas/widget/biotecnologia.dart';
 
 void software() {
   runApp(IngenieriaSoftware());
@@ -52,7 +57,7 @@ class IngenieriaSoftware extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\n la Licenciatura en Terapia Física también conocida como fisioterapia, es una profesión dentro del área de salud aplicada a la rehabilitación, a través de medios físicos, ejercicio terapéutico, masoterapia y electroterapia. La terapia física para la rehabilitación integral ofrece oportunidades que permiten a las personas con alguna deficiencia desarrollar sus destrezas mejorando su interrelación con su entorno.',
+                      '\n Aplicar métodos y técnicas para resolver los problemas de construcción y de proyectos informáticos, específicamente de desarrollo de software, utilizando normas, metodologías, procedimientos y herramientas modernas y estandarizadas.',
                       style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(height: 5),
@@ -73,7 +78,7 @@ class IngenieriaSoftware extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\nTener gusto por el área de la salud. Contar con espíritu de servicio para la atención de las necesidades de salud de la población. Tener la disposición para la investigación y resolución de problemas. Contar con el interés para incrementar sus habilidades humanísticas.',
+                      '\n Bachillerato terminado en cualquiera de sus modalidades (General, Técnico ó Propedéutico en Ciencias Físico–Matemáticas). Amplio sentido de responsabilidad, orden y disciplina. Conocimientos básicos sobre computación y razonamiento lógico matemático.',
                       style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(height: 10),
@@ -94,7 +99,7 @@ class IngenieriaSoftware extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\n El Licenciado en Terapia Física colabora con el equipo interdisciplinario de salud en la elaboración de los planes de tratamiento rehabilitatorio integral, tanto en el individuo discapacitado como con el sujeto de riesgo, con la aplicación de técnicas generales y especificas de rehabilitación.',
+                      '\n El Ingeniero en Software egresado de las Universidades Politécnicas, tiene una formación integral basada en competencias, con conocimientos, actitudes, habilidades y destrezas para automatizar procesos mediante el diseño, desarrollo o actualización de sistemas de software, lo que le permite interactuar en diferentes campos de acción y desempeñarse mejor en la empresa, institución u organizaron pública o privada de los sectores industrial, comercial y de servicios; en la áreas de: Diseño y desarrollo de software a la medida y/o genérico de calidad. Gestión, administración e implantación de proyectos de innovación el área de software. Integración de nuevas soluciones de software a servicios modernos como el comercio electrónico.',
                       style: TextStyle(color: Colors.white),
                     ),
                   ],
@@ -134,12 +139,47 @@ class HeaderSection extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
-              ),
+                ),
             ],
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Contact'),
+          PopupMenuButton<String>(
+            icon: Icon(Icons.menu, color: Colors.white),
+            onSelected: (value) {
+              switch (value) {
+                case '1':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaFinanciera()));
+                  break;
+                case '2':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaBiomedica()));
+                  break;
+                case '3':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaSoftware()));
+                  break;
+                case '4':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaBiotecnologia()));
+                  break;
+                case '5':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => TerapiaFisica()));
+                  break;
+                case '6':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Administracion()));
+                  break;
+              }
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(value: '1', child: Text('Licenciatura en Ingeniería Financiera')),
+              PopupMenuItem(value: '2', child: Text('Licenciatura en Ingeniería Biomédica')),
+              PopupMenuItem(value: '3', child: Text('Ingeniería en Tecnologia Informatica')),
+              PopupMenuItem(value: '4', child: Text('Ingeniería en Biotecnología')),
+              PopupMenuItem(value: '5', child: Text('Licenciatura en Terapia Física')),
+              PopupMenuItem(value: '6', child: Text('Licenciatura en Administración')),
+            ],
           ),
         ],
       ),
@@ -170,7 +210,7 @@ class ContentSection extends StatelessWidget {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'La Licenciatura en Terapia Física es una profesión dentro del área de salud y es entendida como la ciencia del movimiento aplicada a la rehabilitación. La terapia física brinda tratamiento a diferentes enfermedades de acuerdo a la evaluación previa de las habilidades y condiciones propias del paciente.',
+                  "En la carrera de Ingeniería en Software, el profesionista estará facultado para diseñar, desarrollar y mejorar la calidad de productos de software; especificar los métodos y las herramientas para aumentar la productividad de los desarrolladores de software; controlar los procesos de manera eficiente; aplicar los estándares internacionales para construir software de alta calidad.",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -187,7 +227,7 @@ class ContentSection extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                  image: AssetImage('assets/Resource/Img/Terapia.png'),
+                  image: AssetImage('assets/Resource/Img/Software.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -218,7 +258,7 @@ class HighlightSection extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(16),
                 child: Text(
-                  '"Desarrollar al máximo las destrezas y habilidades de las personas con discapacidad y la interrelación del individuo con la familia y su entorno."',
+                  '"Investigación en el campo del desarrollo, reingeniería de las tecnologías de la información, Soporte técnico y estratégico a la infraestructura de tecnologías de informació "',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -240,7 +280,7 @@ class HighlightSection extends StatelessWidget {
                     width: 100,  // Cambia según lo que necesites
                     height: 250,
                 child: Image.asset(
-                    'assets/Resource/Img/fisio1.jpg',
+                    'assets/Resource/Img/software-footer.jpeg',
                       fit: BoxFit.cover,
                 ),
               ),

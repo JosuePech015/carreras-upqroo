@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:vistas/widget/terapia.dart';
+import 'package:vistas/widget/software.dart';
+import 'package:vistas/widget/financiera.dart';
+import 'package:vistas/widget/biomedica.dart';
+import 'package:vistas/widget/administracion.dart';
+import 'package:vistas/widget/biotecnologia.dart';
 
 void biomedica() {
   runApp(IngenieriaBiomedica());
@@ -52,7 +57,7 @@ class IngenieriaBiomedica extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\n la Licenciatura en Terapia Física también conocida como fisioterapia, es una profesión dentro del área de salud aplicada a la rehabilitación, a través de medios físicos, ejercicio terapéutico, masoterapia y electroterapia. La terapia física para la rehabilitación integral ofrece oportunidades que permiten a las personas con alguna deficiencia desarrollar sus destrezas mejorando su interrelación con su entorno.',
+                      '\n Analizar, diseñar, evaluar, innovar y supervisar sistemas biológicos, fisicoquímicos, y tecnológicos para el control, producción, cumplimiento de normativas vigentes y solución de requerimientos ambientales, industriales, científicos y salud, aplicables al sector público y privado para elevar la competitividad bajo los estándares de calidad.',
                       style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(height: 5),
@@ -73,7 +78,7 @@ class IngenieriaBiomedica extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\nTener gusto por el área de la salud. Contar con espíritu de servicio para la atención de las necesidades de salud de la población. Tener la disposición para la investigación y resolución de problemas. Contar con el interés para incrementar sus habilidades humanísticas.',
+                      '\nEl aspirante a ingresar en el programa educativo de Ingeniería Biomédica deberá tener bases académicas sólidas en el área físico-matemática del nivel medio superior, conocimientos básicos de electrónica, química, biología e informática, habilidades para comunicarse correctamente de manera oral y escrita, mostrar interés por contribuir a mejorar la calidad de vida de las personas, mediante el uso y desarrollo de nueva tecnología aplicada a la medicina.',
                       style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(height: 10),
@@ -94,7 +99,7 @@ class IngenieriaBiomedica extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\n El Licenciado en Terapia Física colabora con el equipo interdisciplinario de salud en la elaboración de los planes de tratamiento rehabilitatorio integral, tanto en el individuo discapacitado como con el sujeto de riesgo, con la aplicación de técnicas generales y especificas de rehabilitación.',
+                      '\n El ingeniero Biomédico se caracteriza por su formación multidisciplinaria, que le permite identificar, diagnosticar, reparar, diseñar, mejorar y proponer alternativas de solución a las necesidades y requerimientos en el área de instrumentación y apoyo tecnológico en el área médica, con criterio investigativo e innovador y principios éticos, filosóficos y humanísticos. Es un profesional capacitado para dirigir, intervenir y asesorar en el funcionamiento de centros hospitalarios.',
                       style: TextStyle(color: Colors.white),
                     ),
                   ],
@@ -134,12 +139,47 @@ class HeaderSection extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
-              ),
+                ),
             ],
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Contact'),
+          PopupMenuButton<String>(
+            icon: Icon(Icons.menu, color: Colors.white),
+            onSelected: (value) {
+              switch (value) {
+                case '1':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaFinanciera()));
+                  break;
+                case '2':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaBiomedica()));
+                  break;
+                case '3':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaSoftware()));
+                  break;
+                case '4':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaBiotecnologia()));
+                  break;
+                case '5':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => TerapiaFisica()));
+                  break;
+                case '6':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Administracion()));
+                  break;
+              }
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(value: '1', child: Text('Licenciatura en Ingeniería Financiera')),
+              PopupMenuItem(value: '2', child: Text('Licenciatura en Ingeniería Biomédica')),
+              PopupMenuItem(value: '3', child: Text('Ingeniería en Tecnologia Informatica')),
+              PopupMenuItem(value: '4', child: Text('Ingeniería en Biotecnología')),
+              PopupMenuItem(value: '5', child: Text('Licenciatura en Terapia Física')),
+              PopupMenuItem(value: '6', child: Text('Licenciatura en Administración')),
+            ],
           ),
         ],
       ),
@@ -170,7 +210,7 @@ class ContentSection extends StatelessWidget {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'La Licenciatura en Terapia Física es una profesión dentro del área de salud y es entendida como la ciencia del movimiento aplicada a la rehabilitación. La terapia física brinda tratamiento a diferentes enfermedades de acuerdo a la evaluación previa de las habilidades y condiciones propias del paciente.',
+                  'La carrera de ingeniería Biomédica se puede definir como la aplicación de la ingeniería al servicio de la salud y se caracteriza por la confluencia de conocimientos de áreas como la Biología, Medicina, Física, Química, Matemáticas, Electrónica, informática e Ingeniería con el propósito de desarrollar aplicaciones tecnológicas para la mejora de la salud y la calidad de vida de la población.',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -218,7 +258,7 @@ class HighlightSection extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(16),
                 child: Text(
-                  '"Desarrollar al máximo las destrezas y habilidades de las personas con discapacidad y la interrelación del individuo con la familia y su entorno."',
+                  '"Tu vocación es el puente entre la tecnología y la vida; cada esfuerzo tuyo transforma el mundo."',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -240,7 +280,7 @@ class HighlightSection extends StatelessWidget {
                     width: 100,  // Cambia según lo que necesites
                     height: 250,
                 child: Image.asset(
-                    'assets/Resource/Img/fisio1.jpg',
+                    'assets/Resource/Img/biomedica1.jpg',
                       fit: BoxFit.cover,
                 ),
               ),

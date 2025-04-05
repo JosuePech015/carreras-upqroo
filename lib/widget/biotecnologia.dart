@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:vistas/widget/terapia.dart';
+import 'package:vistas/widget/software.dart';
+import 'package:vistas/widget/financiera.dart';
+import 'package:vistas/widget/biomedica.dart';
+import 'package:vistas/widget/administracion.dart';
+import 'package:vistas/widget/biotecnologia.dart';
 
 void biotecnologia() {
   runApp(IngenieriaBiotecnologia());
@@ -52,7 +57,7 @@ class IngenieriaBiotecnologia extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\n la Licenciatura en Terapia Física también conocida como fisioterapia, es una profesión dentro del área de salud aplicada a la rehabilitación, a través de medios físicos, ejercicio terapéutico, masoterapia y electroterapia. La terapia física para la rehabilitación integral ofrece oportunidades que permiten a las personas con alguna deficiencia desarrollar sus destrezas mejorando su interrelación con su entorno.',
+                      '\nAnalizar, diseñar, evaluar, innovar y supervisar sistemas biológicos, fisicoquímicos, y tecnológicos para el control, producción, cumplimiento de normativas vigentes y solución de requerimientos ambientales, industriales, científicos y salud, aplicables al sector público y privado para elevar la competitividad bajo los estándares de calidad. ',
                       style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(height: 5),
@@ -73,7 +78,7 @@ class IngenieriaBiotecnologia extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\nTener gusto por el área de la salud. Contar con espíritu de servicio para la atención de las necesidades de salud de la población. Tener la disposición para la investigación y resolución de problemas. Contar con el interés para incrementar sus habilidades humanísticas.',
+                      '\nPara ingresar a la carrera de Ingeniería en Biotecnología se requiere: Haber concluido los estudios de bachillerato preferentemente en área físico-matemática o químico-biológica. Presentar y ser aceptado en el examen de ingreso. Los demás que marque la convocatoria de ingreso. Conocimientos previos de biología, química orgánica, matemáticas, física, inglés y computación.',
                       style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(height: 10),
@@ -94,7 +99,7 @@ class IngenieriaBiotecnologia extends StatelessWidget {
                     ],
                     ),
                     Text(
-                      '\n El Licenciado en Terapia Física colabora con el equipo interdisciplinario de salud en la elaboración de los planes de tratamiento rehabilitatorio integral, tanto en el individuo discapacitado como con el sujeto de riesgo, con la aplicación de técnicas generales y especificas de rehabilitación.',
+                      '\nValorar los bioprocesos, a través del análisis e interpretación de parámetros e indicadores de calidad, técnicas de laboratorio escala ensayo, metodologías pertinentes, normatividad y legislación vigentes, para contribuir al desarrollo de los bioproductos y fortalecer la aplicación de la biotecnología a nivel regional y nacional. ',
                       style: TextStyle(color: Colors.white),
                     ),
                   ],
@@ -134,12 +139,47 @@ class HeaderSection extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
-              ),
+                ),
             ],
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Contact'),
+          PopupMenuButton<String>(
+            icon: Icon(Icons.menu, color: Colors.white),
+            onSelected: (value) {
+              switch (value) {
+                case '1':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaFinanciera()));
+                  break;
+                case '2':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaBiomedica()));
+                  break;
+                case '3':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaSoftware()));
+                  break;
+                case '4':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaBiotecnologia()));
+                  break;
+                case '5':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => TerapiaFisica()));
+                  break;
+                case '6':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Administracion()));
+                  break;
+              }
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(value: '1', child: Text('Licenciatura en Ingeniería Financiera')),
+              PopupMenuItem(value: '2', child: Text('Licenciatura en Ingeniería Biomédica')),
+              PopupMenuItem(value: '3', child: Text('Ingeniería en Tecnologia Informatica')),
+              PopupMenuItem(value: '4', child: Text('Ingeniería en Biotecnología')),
+              PopupMenuItem(value: '5', child: Text('Licenciatura en Terapia Física')),
+              PopupMenuItem(value: '6', child: Text('Licenciatura en Administración')),
+            ],
           ),
         ],
       ),
@@ -170,7 +210,7 @@ class ContentSection extends StatelessWidget {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'La Licenciatura en Terapia Física es una profesión dentro del área de salud y es entendida como la ciencia del movimiento aplicada a la rehabilitación. La terapia física brinda tratamiento a diferentes enfermedades de acuerdo a la evaluación previa de las habilidades y condiciones propias del paciente.',
+                  'La ingeniería en biotecnología está orientada a diseñar y mejorar procesos tecnológicos basados en sistemas vivos. La Biotecnología permite aislar y manipular biomoléculas y microorganismos mediante el uso de técnicas de biología molecular, microbiología y bioquímica con el objeto de producir nuevos medicamentos, procesos, alimentos, y plantas.',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -187,7 +227,7 @@ class ContentSection extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                  image: AssetImage('assets/Resource/Img/Terapia.png'),
+                  image: AssetImage('assets/Resource/Img/Biotecnologia.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -218,7 +258,7 @@ class HighlightSection extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(16),
                 child: Text(
-                  '"Desarrollar al máximo las destrezas y habilidades de las personas con discapacidad y la interrelación del individuo con la familia y su entorno."',
+                  '"Formar profesionales éticos y con valores en el área de Ingeniería en Biotecnología apegados al modelo basado en competencias capaces de proponer soluciones a las problemáticas actuales con una sólida formación científica, tecnológica e innovación."',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -240,7 +280,7 @@ class HighlightSection extends StatelessWidget {
                     width: 100,  // Cambia según lo que necesites
                     height: 250,
                 child: Image.asset(
-                    'assets/Resource/Img/fisio1.jpg',
+                    'assets/Resource/Img/biotec-8.jpg',
                       fit: BoxFit.cover,
                 ),
               ),

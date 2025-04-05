@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vistas/widget/terapia.dart';
+import 'package:vistas/widget/software.dart';
+import 'package:vistas/widget/financiera.dart';
+import 'package:vistas/widget/biomedica.dart';
+import 'package:vistas/widget/administracion.dart';
+import 'package:vistas/widget/biotecnologia.dart';
 
 
 void terapia() {
@@ -137,9 +143,44 @@ class HeaderSection extends StatelessWidget {
                 ),
             ],
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text('Contact'),
+          PopupMenuButton<String>(
+            icon: Icon(Icons.menu, color: Colors.white),
+            onSelected: (value) {
+              switch (value) {
+                case '1':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaFinanciera()));
+                  break;
+                case '2':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaBiomedica()));
+                  break;
+                case '3':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaSoftware()));
+                  break;
+                case '4':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => IngenieriaBiotecnologia()));
+                  break;
+                case '5':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => TerapiaFisica()));
+                  break;
+                case '6':
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Administracion()));
+                  break;
+              }
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(value: '1', child: Text('Licenciatura en Ingeniería Financiera')),
+              PopupMenuItem(value: '2', child: Text('Licenciatura en Ingeniería Biomédica')),
+              PopupMenuItem(value: '3', child: Text('Ingeniería en Tecnologia Informatica')),
+              PopupMenuItem(value: '4', child: Text('Ingeniería en Biotecnología')),
+              PopupMenuItem(value: '5', child: Text('Licenciatura en Terapia Física')),
+              PopupMenuItem(value: '6', child: Text('Licenciatura en Administración')),
+            ],
           ),
         ],
       ),
